@@ -7,7 +7,6 @@ import {
     Select,
     TextField
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import InputMask from "react-input-mask";
@@ -16,21 +15,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { deleteUser, getUser, postUser, putUser } from "../../api";
 import { saveDataToDB, showDataFromDB } from "../../helper/functions";
 import { Div, DivRow, Form } from "./styles";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-    formControl: {
-      margin: theme.spacing(1),
-      width: "100%",
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-  },
-}));
 
 const Main = () => {
   const [idBusca, setIdBusca] = useState("");
@@ -84,7 +68,7 @@ const Main = () => {
     let error = false;
     const aDate = moment(user.dataNascimento, "DD/MM/YYYY", true);
     const isValid = aDate.isValid();
-    const regexCpf = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
+    const regexCpf = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
     const validCpf = regexCpf.test(user.cpf);
 
     setErrorName(user.nome.length === 0);
