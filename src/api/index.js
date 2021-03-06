@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const url = "http://localhost:8081/softplan/";
+// const url = "http://localhost:8081/softplan/";
+const url = "https://api-softplan-users.herokuapp.com/softplan/";
 
 const auth = {
   username: "banana",
